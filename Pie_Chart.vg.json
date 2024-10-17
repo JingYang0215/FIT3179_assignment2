@@ -1,0 +1,50 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 1200,
+  "height": 800,
+  "data": {
+    "url": "https://raw.githubusercontent.com/JingYang0215/FIT3179_assignment2/refs/heads/main/CB-Insights_Global-Unicorn-Club_2024.csv",
+    "format": {"type": "csv"}
+  },
+  "params": [
+    {
+      "name": "yearRange",
+      "value": 2007,
+      "bind": {
+        "input": "select",
+        "options": [2007, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024],
+        "name": "Select Year"
+      }
+    }
+  ],
+  "transform": [
+    {
+      "calculate": "year(datum['Date Joined'])",
+      "as": "Year"
+    },
+    {
+      "filter": "datum.Year == yearRange"
+    },
+    {
+      "aggregate": [{"op": "count", "as": "Number of Companies"}],
+      "groupby": ["Industry"]
+    }
+  ],
+  "mark": {"type": "arc", "innerRadius": 50},
+  "encoding": {
+    "theta": {
+      "field": "Number of Companies",
+      "type": "quantitative",
+      "stack": true
+    },
+    "color": {
+      "field": "Industry",
+      "type": "nominal",
+      "legend": {"title": "Industry"}
+    },
+    "tooltip": [
+      {"field": "Industry", "type": "nominal", "title": "Industry"},
+      {"field": "Number of Companies", "type": "quantitative", "title": "Number of Companies"}
+    ]
+  }
+}
