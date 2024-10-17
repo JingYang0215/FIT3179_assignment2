@@ -1,0 +1,54 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 1200,
+    "height": 800,
+    "data": {
+      "url": "https://raw.githubusercontent.com/JingYang0215/FIT3179_assignment2/refs/heads/main/CB-Insights_Global-Unicorn-Club_2024.csv",
+      "format": {"type": "csv"}
+    },
+    "transform": [
+    {
+      "calculate": "year(datum['Date Joined'])",
+      "as": "Year"
+    },
+    {
+      "aggregate": [{"op": "count", "as": "Number of Companies"}],
+      "groupby": ["Year"]
+    }
+  ],
+  "layer": [
+    {
+      "mark": {"type": "line", "point": true},  
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "ordinal",
+          "title": "Year",
+          "sort": "ascending"
+        },
+        "y": {
+          "field": "Number of Companies",
+          "type": "quantitative",
+          "title": "Number of Companies"
+        },
+        "tooltip": [
+          {"field": "Year", "type": "ordinal", "title": "Year"},
+          {"field": "Number of Companies", "type": "quantitative", "title": "Number of Companies"}
+        ]
+      }
+    },
+    {
+      "mark": {"type": "point", "filled": true, "size": 80},  
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "Number of Companies",
+          "type": "quantitative"
+        }
+      }
+    }
+  ]
+}
