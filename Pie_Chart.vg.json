@@ -9,11 +9,11 @@
   "params": [
     {
       "name": "yearRange",
-      "value": 2007,
+      "value": null,
       "bind": {
         "input": "select",
-        "options": ["null",2007, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024],
-        "name": "Select Year"
+        "options": ["All Years",2007, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024],
+        "name": "Select Year: "
       }
     }
   ],
@@ -23,7 +23,7 @@
       "as": "Year"
     },
     {
-      "filter": "datum.Year == yearRange"
+      "filter": "yearRange == null || datum.Year == yearRange"
     },
     {
       "aggregate": [{"op": "count", "as": "Number of Companies"}],

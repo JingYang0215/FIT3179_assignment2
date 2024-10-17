@@ -1,0 +1,73 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Unicorn Startup Companies",
+    "width": 800,
+    "height": 400,
+    "projection": {"type": "equalEarth"},
+    "data": {
+      "url": "https://raw.githubusercontent.com/JingYang0215/FIT3179_assignment2/refs/heads/main/CB-Insights_Global-Unicorn-Club_2024.csv",
+      "format": {"type": "csv"}
+    },
+    "params": [
+      {
+        "name": "IndustrySelection",
+        "value": "Overall",
+        "bind": {
+          "input": "select",
+          "options": ["Overall", "Consumer & Retail", "Enterprise Tech", "Financial Services", "Healthcare & Life Sciences", "Industrials", "Insurance", "Media & Entertainment"],
+          "name": "Select Industry: "
+        }
+      }
+    ],
+    "transform": [
+      {
+        "filter": "IndustrySelection == 'Overall' || datum.Industry == IndustrySelection"
+      },
+      {
+        "aggregate": [{"op": "count", "as": "Number of Unicorns"}],
+        "groupby": ["Country"]
+      },
+      {
+        "lookup": "Country",
+        "from": {
+          "data": {
+            "url": "https://raw.githubusercontent.com/JingYang0215/FIT3179_assignment2/refs/heads/main/ne_110m_admin_0_countries.topojson",
+            "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+          },
+          "key": "properties.NAME",
+          "fields": ["type", "properties", "geometry"]
+        },
+        "as": ["geo_type", "geo_properties", "geo_geometry"]
+      }
+    ],
+    "layer": [
+      {
+        "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"},
+        "data": {
+          "url": "https://raw.githubusercontent.com/JingYang0215/FIT3179_assignment2/refs/heads/main/ne_110m_admin_0_countries.topojson",
+          "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+        }
+      },
+      {
+        "mark": {"type": "geoshape"},
+        "encoding": {
+          "shape": {"field": "geo_geometry", "type": "geojson"},
+          "color": {
+            "field": "Number of Unicorns",
+            "type": "quantitative",
+            "scale": {
+              "type": "linear", 
+              "range": ["lightyellow", "orange", "red", "darkred"],  
+              "domain": [0, 100, 300, 700],  
+              "nice": true
+            }
+          },
+          "tooltip": [
+            {"field": "Country", "type": "nominal", "title": "Country"},
+            {"field": "Number of Unicorns", "type": "quantitative", "title": "Number of Unicorns"}
+          ]
+        }
+      }
+    ]
+  }
+  
