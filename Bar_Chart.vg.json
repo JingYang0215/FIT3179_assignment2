@@ -1,0 +1,19 @@
+{   
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 600,
+    "data": {
+        "url": "https://raw.githubusercontent.com/JingYang0215/FIT3179_assignment2/refs/heads/main/top_investors.csv",
+        "format": {"type": "csv"}
+      },
+    "layer": [
+      {
+        "mark": "bar",
+        "encoding": {
+          "x": {"field": "Investor", "type": "nominal", "sort": "-x", "title": "Investor"},
+          "size": {"value": 50},
+          "y": {"field": "Count", "type": "quantitative", "title": "Number of Investments"}
+        }
+      }
+    ]
+}
