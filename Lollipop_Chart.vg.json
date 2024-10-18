@@ -1,70 +1,89 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 800,
-    "height": 600,
-    "data": {
-    "url": "https://raw.githubusercontent.com/JingYang0215/FIT3179_assignment2/refs/heads/main/CB-Insights_Global-Unicorn-Club_2024.csv",
-    "format": {"type": "csv"}
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 800,
+  "height": 600,
+  "data": {
+  "url": "https://raw.githubusercontent.com/JingYang0215/FIT3179_assignment2/refs/heads/main/CB-Insights_Global-Unicorn-Club_2024.csv",
+  "format": {"type": "csv"}
+},
+"params": [
+  {
+    "name": "yearRange",
+    "bind": {
+      "input": "select",
+      "options": [null,2007, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024],
+      "labels": ["Show All","2007", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"],
+      "name": "Select Year: "
+    }
+  }
+],
+"transform": [
+  {
+    "calculate": "year(datum['Date Joined'])",
+    "as": "Year"
   },
-  "transform": [
-    {
-      "aggregate": [
-        {"op": "sum", "field": "Valuation ($B)", "as": "Total Valuation"}
-      ],
-      "groupby": ["Country"]
-    },
-    {
-      "window": [
-        {"op": "rank", "as": "Rank"}
-      ],
-      "sort": [{"field": "Total Valuation", "order": "descending"}]
-    },
-    {
-      "filter": "datum.Rank <= 10"
+  {
+    "filter": "yearRange == null || datum.Year == yearRange"
+  },
+  {
+    "aggregate": [
+      {"op": "sum", "field": "Valuation ($B)", "as": "Total Valuation"}
+    ],
+    "groupby": ["Country"]
+  },
+
+  {
+    "window": [
+      {"op": "rank", "as": "Rank"}
+    ],
+    "sort": [{"field": "Total Valuation", "order": "descending"}]
+  },
+  {
+    "filter": "datum.Rank <= 10"
+  }
+],
+"layer": [
+  {
+    "mark": {"type": "rule"},
+    "encoding": {
+      "x": {
+        "field": "Country",
+        "type": "nominal",
+        "title": "Country",
+        "sort": "-y"
+      },
+      "y": {
+        "field": "Total Valuation",
+        "type": "quantitative",
+        "title": "Total Valuation ($B)"
+      },
+      "y2": {"value": 600}
     }
-  ],
-  "layer": [
-    {
-      "mark": {"type": "rule"},
-      "encoding": {
-        "x": {
-          "field": "Country",
-          "type": "nominal",
-          "title": "Country",
-          "sort": "-y"
-        },
-        "y": {
-          "field": "Total Valuation",
-          "type": "quantitative",
-          "title": "Total Valuation ($B)"
-        },
-        "y2": {"value": 600}
-      }
-    },
-    {
-      "mark": {"type": "point", "filled": true, "size": 100},
-      "encoding": {
-        "x": {
-          "field": "Country",
-          "type": "nominal",
-          "title": "Country",
-          "sort": "-y"
-        },
-        "y": {
-          "field": "Total Valuation",
-          "type": "quantitative",
-          "title": "Total Valuation ($B)"
-        },
-        "color": {
-          "field": "Country",
-          "type": "nominal",
-          "legend": {"title": "Country"}
-        },
-        "tooltip": [
-          {"field": "Country", "type": "nominal", "title": "Country"},
-          {"field": "Total Valuation", "type": "quantitative", "title": "Total Valuation ($B)"}
-        ]
-      }
+  },
+  {
+    "mark": {"type": "point", "filled": true, "size": 100},
+    "encoding": {
+      "x": {
+        "field": "Country",
+        "type": "nominal",
+        "title": "Country",
+        "sort": "-y"
+      },
+      "y": {
+        "field": "Total Valuation",
+        "type": "quantitative",
+        "title": "Total Valuation ($B)"
+      },
+      "color": {
+        "field": "Country",
+        "type": "nominal",
+        "legend": {"title": "Country"}
+      },
+      "tooltip": [
+        {"field": "Country", "type": "nominal", "title": "Country"},
+        {"field": "Total Valuation", "type": "quantitative", "title": "Total Valuation ($B)"}
+      ]
     }
-  ]
+  }
+]
 }
