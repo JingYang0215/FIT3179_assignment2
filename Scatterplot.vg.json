@@ -50,7 +50,8 @@
         {"field": "Country", "type": "nominal", "title": "Country"},
         {"field": "Valuation ($B)", "type": "quantitative", "title": "Total Valuation ($B)"},
         {"field": "Year", "type": "temporal", "title": "Year"},
-        {"field": "Industry", "type": "nominal", "title": "Industry"}
+        {"field": "Industry", "type": "nominal", "title": "Industry"},
+        {"field": "Company", "type": "nominal", "title": "Company"}
       ]
     }
   }
