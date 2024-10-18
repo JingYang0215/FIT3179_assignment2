@@ -39,7 +39,7 @@
       "y": {
         "field": "Valuation ($B)",
         "type": "quantitative",
-        "title": "Total Valuation ($B)"
+        "title": "Valuation ($B)"
       },
       "color": {
         "field": "Industry",
@@ -48,8 +48,8 @@
       },
       "tooltip": [
         {"field": "Country", "type": "nominal", "title": "Country"},
-        {"field": "Valuation ($B)", "type": "quantitative", "title": "Total Valuation ($B)"},
-        {"field": "Year", "type": "temporal", "title": "Year"},
+        {"field": "Valuation ($B)", "type": "quantitative", "title": "Valuation ($B)"},
+        {"field": "Year", "type": "quantitative", "title": "Year"},
         {"field": "Industry", "type": "nominal", "title": "Industry"},
         {"field": "Company", "type": "nominal", "title": "Company"}
       ]
