@@ -67,7 +67,10 @@
         "field": "Country",
         "type": "nominal",
         "title": "Country",
-        "sort": "-y"
+        "sort": "-y",
+        "axis": {
+            "labelAngle": 330  
+          }
       },
       "y": {
         "field": "Total Valuation",

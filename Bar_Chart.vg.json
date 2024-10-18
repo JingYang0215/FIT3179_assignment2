@@ -10,7 +10,9 @@
       {
         "mark": "bar",
         "encoding": {
-          "x": {"field": "Investor", "type": "nominal", "sort": "-x", "title": "Investor"},
+          "x": {"field": "Investor", "type": "nominal", "sort": "-x", "title": "Investor","axis": {
+            "labelAngle": 330  
+          }},
           "size": {"value": 50},
           "y": {"field": "Count", "type": "quantitative", "title": "Number of Investments"},
           "color": {

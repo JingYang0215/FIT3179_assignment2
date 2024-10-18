@@ -34,7 +34,10 @@
         "title": "Year",
         "scale": {
           "domain": ["2007", "2024"] 
-        }
+        },
+        "axis": {
+            "labelAngle": 330  
+          }
       },
       "y": {
         "field": "Valuation ($B)",

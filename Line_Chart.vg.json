@@ -24,7 +24,10 @@
           "field": "Year",
           "type": "ordinal",
           "title": "Year",
-          "sort": "ascending"
+          "sort": "ascending",
+          "axis": {
+            "labelAngle": 330  
+          }
         },
         "y": {
           "field": "Number of Companies",

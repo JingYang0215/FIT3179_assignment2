@@ -52,6 +52,26 @@
         border: 5px solid #e6f2ff; 
         box-shadow: none; 
       }
+
+      .pie-chart-container {
+        display: flex;
+        justify-content: space-between; /* Ensure space between the two boxes */
+        align-items: stretch; /* Make sure both boxes align vertically */
+        width: flex;
+        margin-bottom: 40px;
+      }
+      
+      .pie-chart-box {
+        flex-basis: 70%; /* The pie chart container takes 70% of the space */
+        padding: 15px;
+        align-items: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        margin: 10px;
+        border: 5px solid #e6f2ff;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
   
       .description-box {
         margin-top: 10px;
@@ -67,18 +87,41 @@
         margin-left: auto;
         margin-right: auto;
       }
+
+      .pie-description-box{
+        flex-basis: 30%; /* The description box takes 30% of the space */
+        padding: 15px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        background-color: #e6f2ff;
+      }
+      
     
     @media (max-width: 100%) {
         .chart-container {
             flex-direction: column;  /* stacks the chart and description vertically on smaller screens */
         }
     }
+
+    .bar-chart-container {
+      display: flex;
+      justify-content: space-between; /* Ensure space between the two boxes */
+      align-items: stretch; /* Make sure both boxes align vertically */
+      width: flex;
+      margin-bottom: 40px;
+      border: 5px solid #e6f2ff
+    }
     
 
       .list-description-box {
         text-align: left;
-        padding: 15px;
+        font-size: 15px;
+        padding: 5px;
         max-width: 500px;
+        max-height: 750px;
         background-color: #e6f2ff;
         border-radius: 8px;
         margin-left: auto;
@@ -141,16 +184,18 @@
     </div>
   
     <!-- Pie Chart -->
-    <div class="chart-container">
-      <h2 class="chart-title">Proportion of Unicorn Companies by Industries</h2>
-      <div id="pie_chart"></div>
-      <div class="description-box center-text">
+    <h2 class="chart-title">Proportion of Unicorn Companies by Industries</h2>
+    <div class="pie-chart-container">
+      <div class="pie-chart-box"> 
+        <div id="pie_chart"></div>
+      </div>
+      <div class="pie-description-box center-text">
         <p>Based on our observations of the pie chart, it is evident that <b>before 2018, the consumer and retail industry held the largest portion of unicorn companies</b>. However, in <b>2018, there was a significant shift</b>, with <b>enterprise tech taking the lead</b> as the dominant sector. This marks a pivotal change, demonstrating that <b>since 2018, investors and entrepreneurs have increasingly focused on the tech industry</b>. The data further supports this, showing that <b>the tech industry has consistently produced the most unicorn companies each year since 2018</b>.</p>      </div>
     </div>
   
     <!-- Bar Chart -->
-    <div class="chart-container">
-      <h2 class="chart-title">Top 10 Investors on Unicorns</h2>
+    <h2 class="chart-title">Top 10 Investors on Unicorns</h2>
+    <div class="bar-chart-container">
       <div id="bar_chart"></div>
       <div class="description-box list-description-box">
         <ul>
