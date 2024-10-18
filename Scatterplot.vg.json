@@ -33,7 +33,7 @@
         "type": "quantitative",
         "title": "Year",
         "scale": {
-          "domain": ["2004", "2025"] 
+          "domain": ["2007", "2024"] 
         }
       },
       "y": {
