@@ -30,11 +30,7 @@
           "field": "Number of Companies",
           "type": "quantitative",
           "title": "Number of Companies"
-        },
-        "tooltip": [
-          {"field": "Year", "type": "ordinal", "title": "Year"},
-          {"field": "Number of Companies", "type": "quantitative", "title": "Number of Companies"}
-        ]
+        }
       }
     },
     {
@@ -47,7 +43,11 @@
         "y": {
           "field": "Number of Companies",
           "type": "quantitative"
-        }
+        },
+        "tooltip": [
+          {"field": "Year", "type": "ordinal", "title": "Year"},
+          {"field": "Number of Companies", "type": "quantitative", "title": "Number of Companies"}
+        ]
       }
     }
   ]
