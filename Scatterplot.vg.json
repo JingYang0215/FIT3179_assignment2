@@ -1,0 +1,57 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 600,
+    "data": {
+      "url": "https://raw.githubusercontent.com/JingYang0215/FIT3179_assignment2/refs/heads/main/CB-Insights_Global-Unicorn-Club_2024.csv",
+      "format": {"type": "csv"}
+    },
+    "params": [
+        {
+          "name": "IndustrySelection",
+          "bind": {
+            "input": "select",
+            "options": [null, "Consumer & Retail", "Enterprise Tech", "Financial Services", "Healthcare & Life Sciences", "Industrials", "Insurance", "Media & Entertainment"],
+            "labels": ["Overall", "Consumer & Retail", "Enterprise Tech", "Financial Services", "Healthcare & Life Sciences", "Industrials", "Insurance", "Media & Entertainment"],
+            "name": "Select Industry: "
+          }
+        }
+      ],
+    "transform": [
+      {
+          "filter": "IndustrySelection == null || datum.Industry == IndustrySelection"
+        },
+      {
+        "calculate": "year(datum['Date Joined'])",
+        "as": "Year"
+      }
+    ],
+    "mark": {"type": "point", "filled": true, "size": 100},
+    "encoding": {
+      "x": {
+        "field": "Year",
+        "type": "quantitative",
+        "title": "Year",
+        "scale": {
+          "domain": ["2004", "2025"] 
+        }
+      },
+      "y": {
+        "field": "Valuation ($B)",
+        "type": "quantitative",
+        "title": "Total Valuation ($B)"
+      },
+      "color": {
+        "field": "Industry",
+        "type": "nominal",
+        "legend": {"title": "Industry"}
+      },
+      "tooltip": [
+        {"field": "Country", "type": "nominal", "title": "Country"},
+        {"field": "Valuation ($B)", "type": "quantitative", "title": "Total Valuation ($B)"},
+        {"field": "Year", "type": "temporal", "title": "Year"},
+        {"field": "Industry", "type": "nominal", "title": "Industry"}
+      ]
+    }
+  }
+  
