@@ -154,7 +154,7 @@
   
     <!-- Lollipop Chart -->
     <div class="chart-container">
-      <h2 class="chart-title">Total Valuation of Unicorn Companies for Each Country</h2>
+      <h2 class="chart-title">Total Valuation of Unicorn Companies for Top 10 Countries</h2>
       <div id="lollipop_chart"></div>
       <div class="description-box center-text">
         <p>The lollipop chart highlights the total valuation of unicorns in each country, showing a <b>significant concentration of value in the United States</b>, followed by China. The choropleth map provides a visualization of the number of unicorns globally, where the United States leads with <b>over 600 unicorns</b>, followed by China and India. Both visualizations suggest a <b>strong relationship between the number of unicorns and their total valuation</b> in each country, with countries like the U.S. and China dominating in both the number of unicorns and total valuation, while other countries have fewer unicorns and lower valuations.</p>
@@ -172,34 +172,17 @@
   
     <!-- Metadata Footer -->
     <footer>
-      <p>Created and designed by Hoe Jing Yang. The data used for this visualization is sourced from <a href="https://www.cbinsights.com/research-unicorn-companies">CBInsights</a>.</p>
+      <p>This visualization was created and designed by Hoe Jing Yang for FIT3179 - Data Visualization. The data used for this visualization is sourced from <a href="https://www.cbinsights.com/research-unicorn-companies">CBInsights</a> and <a href="https://www.naturalearthdata.com/downloads/">Natural Earth</a>.</p>
     </footer> 
   
     <!-- JavaScript to embed the visualizations -->
     <script type="text/javascript">
-      vegaEmbed('#choropleth_map', "https://raw.githubusercontent.com/JingYang0215/FIT3179_assignment2/refs/heads/main/Choropleth_Map.vg.json").then(function (result) {
-        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-      }).catch(console.error);
-  
-      vegaEmbed('#line_chart', "https://raw.githubusercontent.com/JingYang0215/FIT3179_assignment2/refs/heads/main/Line_Chart.vg.json").then(function (result) {
-        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-      }).catch(console.error);
-  
-      vegaEmbed('#pie_chart', "https://raw.githubusercontent.com/JingYang0215/FIT3179_assignment2/refs/heads/main/Pie_Chart.vg.json").then(function (result) {
-        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-      }).catch(console.error);
-  
-      vegaEmbed('#bar_chart', "https://raw.githubusercontent.com/JingYang0215/FIT3179_assignment2/refs/heads/main/Bar_Chart.vg.json").then(function (result) {
-        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-      }).catch(console.error);
-  
-      vegaEmbed('#lollipop_chart', "https://raw.githubusercontent.com/JingYang0215/FIT3179_assignment2/refs/heads/main/Lollipop_Chart.vg.json").then(function (result) {
-        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-      }).catch(console.error);
-      
-      vegaEmbed('#scatterplot_chart', "https://raw.githubusercontent.com/JingYang0215/FIT3179_assignment2/refs/heads/main/Scatterplot.vg.json").then(function (result) {
-        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-      }).catch(console.error);
+      vegaEmbed('#choropleth_map', "https://raw.githubusercontent.com/JingYang0215/FIT3179_assignment2/refs/heads/main/Choropleth_Map.vg.json").then(function (result) {}).catch(console.error);
+      vegaEmbed('#line_chart', "https://raw.githubusercontent.com/JingYang0215/FIT3179_assignment2/refs/heads/main/Line_Chart.vg.json").then(function (result) {}).catch(console.error);
+      vegaEmbed('#pie_chart', "https://raw.githubusercontent.com/JingYang0215/FIT3179_assignment2/refs/heads/main/Pie_Chart.vg.json").then(function (result) {}).catch(console.error);
+      vegaEmbed('#bar_chart', "https://raw.githubusercontent.com/JingYang0215/FIT3179_assignment2/refs/heads/main/Bar_Chart.vg.json").then(function (result) {}).catch(console.error);
+      vegaEmbed('#lollipop_chart', "https://raw.githubusercontent.com/JingYang0215/FIT3179_assignment2/refs/heads/main/Lollipop_Chart.vg.json").then(function (result) {}).catch(console.error);
+      vegaEmbed('#scatterplot_chart', "https://raw.githubusercontent.com/JingYang0215/FIT3179_assignment2/refs/heads/main/Scatterplot.vg.json").then(function (result) {}).catch(console.error);
     </script>
   
   

@@ -12,7 +12,16 @@
         "encoding": {
           "x": {"field": "Investor", "type": "nominal", "sort": "-x", "title": "Investor"},
           "size": {"value": 50},
-          "y": {"field": "Count", "type": "quantitative", "title": "Number of Investments"}
+          "y": {"field": "Count", "type": "quantitative", "title": "Number of Investments"},
+          "color": {
+            "field": "Investor",
+            "type": "nominal",
+            "legend": {"title": "Investors"}
+          },
+          "tooltip": [
+            {"field": "Investor", "type": "nominal", "title": "Investor Name: "},
+            {"field": "Count", "type": "nominal", "title": "Number of Unicorns Invested: "}
+          ]
         }
       }
     ]
