@@ -11,10 +11,10 @@
     "params": [
       {
         "name": "IndustrySelection",
-        "value": "Overall",
         "bind": {
           "input": "select",
-          "options": ["Overall", "Consumer & Retail", "Enterprise Tech", "Financial Services", "Healthcare & Life Sciences", "Industrials", "Insurance", "Media & Entertainment"],
+          "options": [null, "Consumer & Retail", "Enterprise Tech", "Financial Services", "Healthcare & Life Sciences", "Industrials", "Insurance", "Media & Entertainment"],
+          "labels": ["Overall", "Consumer & Retail", "Enterprise Tech", "Financial Services", "Healthcare & Life Sciences", "Industrials", "Insurance", "Media & Entertainment"],
           "name": "Select Industry: "
         }
       }
