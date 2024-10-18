@@ -15,10 +15,18 @@
         font-family: 'Times New Roman', Times, serif;
         margin: 0;
         padding: 20px;
-        background-color: #f0f4f8;
+        background-color: #e6f2ff;
         color: #333;
         line-height: 1.6;
       }
+      .container {
+        max-width: 1500px;
+        margin: 0 auto;
+        background-color: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
   
       h1 {
         text-align: center;
@@ -41,29 +49,37 @@
         align-items: center;
         margin-bottom: 40px;
         width: 100%;
-        border: none; 
+        border: 5px solid #e6f2ff; 
         box-shadow: none; 
       }
   
       .description-box {
         margin-top: 10px;
+        font-size: 20px;
         padding: 15px;
-        background-color: #ffffff;
+        background-color: #e6f2ff;
         border: 1px solid #ddd;
         border-radius: 8px;
-        width: 100%;
-        max-width: 1000px;
+        width: flex;
+        max-width: 100%;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         text-align: center;
         margin-left: auto;
         margin-right: auto;
       }
+    
+    @media (max-width: 100%) {
+        .chart-container {
+            flex-direction: column;  /* stacks the chart and description vertically on smaller screens */
+        }
+    }
+    
 
       .list-description-box {
         text-align: left;
         padding: 15px;
         max-width: 500px;
-        background-color: #f8f9fb;
+        background-color: #e6f2ff;
         border-radius: 8px;
         margin-left: auto;
         margin-right: auto;
@@ -97,7 +113,7 @@
   </head>
   
   <body>
-  
+  <div class="container">
     <h1>Unicorn Companies Around The World (2007 - Present)</h1>
   
     <!-- Intro Text Block -->
