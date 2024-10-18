@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 800,
+    "width": 400,
     "height": 400,
     "data": {
       "url": "https://raw.githubusercontent.com/JingYang0215/FIT3179_assignment2/refs/heads/main/CB-Insights_Global-Unicorn-Club_2024.csv",
