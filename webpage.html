@@ -1,0 +1,208 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unicorn Startup Companies Around The World</title>
+  
+    <!-- Import Vega & Vega-Lite -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+  
+    <!-- CSS for layout and alignment -->
+    <style>
+      body {
+        font-family: 'Times New Roman', Times, serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f0f4f8;
+        color: #333;
+        line-height: 1.6;
+      }
+  
+      h1 {
+        text-align: center;
+        font-size: 2.5em;
+        margin-bottom: 30px;
+        color: #333a4d;
+        letter-spacing: 1px;
+      }
+  
+      .chart-title {
+        font-size: 1.75em;
+        margin-bottom: 15px;
+        text-align: center;
+        color: #3a3d4e;
+      }
+  
+      .chart-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 40px;
+        width: 100%;
+        border: none; 
+        box-shadow: none; 
+      }
+  
+      .description-box {
+        margin-top: 10px;
+        padding: 15px;
+        background-color: #ffffff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        width: 100%;
+        max-width: 1000px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .list-description-box {
+        text-align: left;
+        padding: 15px;
+        max-width: 500px;
+        background-color: #f8f9fb;
+        border-radius: 8px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+  
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+  
+      ul li {
+        padding: 8px 0;
+        font-weight: 400;
+      }
+  
+      .extra-margin {
+        margin-bottom: 60px;
+      }
+  
+      /* Footer Style */
+      footer {
+        text-align: center;
+        margin-top: 40px;
+        padding: 20px;
+        background-color: #f0f4f8;
+        font-size: 0.9em;
+        color: #555;
+      }
+    </style>
+  </head>
+  
+  <body>
+  
+    <h1>Unicorn Companies Around The World (2007 - Present)</h1>
+  
+    <!-- Intro Text Block -->
+    <div class="description-box center-text">
+      <p>
+        A <b>unicorn company</b> is a <b>privately-held startup</b> that has reached a <b>valuation of over $1 billion</b>. The term <b>"unicorn"</b> was coined to highlight the <b>rarity</b> of such companies, as achieving this valuation milestone is considered an <b>extraordinary feat</b>. These companies often operate in <b>high-growth industries</b> like <b>technology</b>, <b>fintech</b>, and <b>healthcare</b>, and they are known for their <b>innovation</b> and <b>rapid market expansion</b>. Unicorns play a significant role in shaping <b>global markets</b> and <b>trends</b>, as their <b>disruptive business models</b> and <b>cutting-edge solutions</b> attract substantial <b>investor interest</b>.      </p>
+    </div>
+  
+    <!-- Choropleth_Map Map -->
+    <div class="chart-container">
+      <h2 class="chart-title">Number of Unicorn Companies for Each Country</h2>
+      <div id="choropleth_map"></div>
+        <div class="description-box center-text">
+            <p>The visualization reveals a clear concentration of unicorn companies in specific regions, with the <strong>United States</strong> leading by a significant margin, followed by <strong>China and India</strong>. These countries <b>dominate</b> the <b>global startup ecosystem</b>, reflecting their strong innovation and tech sectors. In contrast, many regions, particularly in <b>Africa and South America</b>, show <b>little to no presence of unicorn companies</b>, highlighting a <b>global disparity in startup growth</b>. This suggests that <b>economic factors, technological infrastructure, and investment opportunities</b> are driving the <b>uneven distribution of high-value startups</b> across the world.   
+        </div>
+    </div>
+
+    <!-- Line Chart -->
+    <div class="chart-container">
+      <h2 class="chart-title">Year of Companies Became Unicorn</h2>
+      <div id="line_chart"></div>
+      <div class="description-box center-text">
+        <p>The line chart shows the number of companies that became unicorns by year instead of their founding year, with a <b>sharp spike</b> in <b>2021</b>, reaching nearly <b>500</b> companies. Prior to this, the growth was relatively <b>steady but low</b>, with <b>gradual increases starting around 2015</b>. The <b>surge in 2021</b> is likely due to the <b>economic and technological shifts</b> brought on by the <b>COVID-19 pandemic</b>, which accelerated <b>digital transformation, e-commerce, and fintech adoption</b>, leading to a surge in startup valuations. After 2021, the number of unicorn companies dropped sharply, possibly due to <b>market corrections and cooling investment trends</b>.</p>
+    </div>
+    </div>
+  
+    <!-- Pie Chart -->
+    <div class="chart-container">
+      <h2 class="chart-title">Proportion of Unicorn Companies by Industries</h2>
+      <div id="pie_chart"></div>
+      <div class="description-box center-text">
+        <p>Based on our observations of the pie chart, it is evident that <b>before 2018, the consumer and retail industry held the largest portion of unicorn companies</b>. However, in <b>2018, there was a significant shift</b>, with <b>enterprise tech taking the lead</b> as the dominant sector. This marks a pivotal change, demonstrating that <b>since 2018, investors and entrepreneurs have increasingly focused on the tech industry</b>. The data further supports this, showing that <b>the tech industry has consistently produced the most unicorn companies each year since 2018</b>.</p>      </div>
+    </div>
+  
+    <!-- Bar Chart -->
+    <div class="chart-container">
+      <h2 class="chart-title">Top 10 Investors on Unicorns</h2>
+      <div id="bar_chart"></div>
+      <div class="description-box list-description-box">
+        <ul>
+          <li><strong>Tiger Global Management</strong> - Tiger Global Management, LLC is an American investment firm.</li>
+          <li><strong>Softbank Group</strong> - SoftBank Group Corp. is a Japanese multinational investment holding company headquartered in Minato, Tokyo, Japan.</li>
+          <li><strong>Sequoia Capital China</strong> - Sequoia Capital China and was known as HongShan is a Chinese venture capital firm founded in 2005.</li>
+          <li><strong>Sequoia Capital</strong> - Sequoia Capital Operations, LLC is an American venture capital firm headquartered in Menlo Park, California which specializes in seed stage, early stage, and growth stage investments in private companies across technology sectors.</li>
+          <li><strong>Lightspeed Venture Partners</strong> - Lightspeed Venture Partners is a leading global venture capital firm that invests in technology and innovation-driven companies at various stages of development.</li>
+          <li><strong>Insight Partners</strong> - Insight Venture Management, LLC is a global venture capital and private equity firm that invests in high-growth technology, software, and Internet businesses.</li>
+          <li><strong>Index Ventures</strong> - Index Ventures is a European venture capital firm that invests primarily in tech companies.</li>
+          <li><strong>General Catalyst</strong> - General Catalyst is a U.S.-based venture capital firm that makes early stage and growth investments.</li>
+          <li><strong>Andreessen Horowitz</strong> - Andreessen Horowitz is a private American venture capital firm.</li>
+          <li><strong>Accel</strong> - Accel is an American venture capital firm that works with startups in seed, early and growth-stage investments.</li>
+        </ul>
+      </div>
+    </div>
+  
+    <!-- Lollipop Chart -->
+    <div class="chart-container">
+      <h2 class="chart-title">Total Valuation of Unicorn Companies for Each Country</h2>
+      <div id="lollipop_chart"></div>
+      <div class="description-box center-text">
+        <p>The lollipop chart highlights the total valuation of unicorns in each country, showing a <b>significant concentration of value in the United States</b>, followed by China. The choropleth map provides a visualization of the number of unicorns globally, where the United States leads with <b>over 600 unicorns</b>, followed by China and India. Both visualizations suggest a <b>strong relationship between the number of unicorns and their total valuation</b> in each country, with countries like the U.S. and China dominating in both the number of unicorns and total valuation, while other countries have fewer unicorns and lower valuations.</p>
+      </div>
+    </div>
+
+    <!-- Scatterplot Chart -->
+    <div class="chart-container">
+        <h2 class="chart-title">Total Valuation of Unicorn Companies for Each Country</h2>
+        <div id="scatterplot_chart"></div>
+        <div class="description-box center-text">
+          <p>This chart provides a visualization of the <b>valuation of each unicorn company (startups valued at $1 billion or more) by country over time, from 2007 to 2024</b>. Each point corresponds to <b>each unicorn</b> for a specific year and industry, allowing users to observe trends in <b>unicorn valuations across different countries and industries</b> over the years. The dropdown menu enables filtering the chart by a specific industry.</p>
+        </div>
+      </div>
+  
+    <!-- Metadata Footer -->
+    <footer>
+      <p>Created and designed by Hoe Jing Yang. The data used for this visualization is sourced from <a href="https://www.cbinsights.com/research-unicorn-companies">CBInsights</a>.</p>
+    </footer> 
+  
+    <!-- JavaScript to embed the visualizations -->
+    <script type="text/javascript">
+      vegaEmbed('#choropleth_map', "https://raw.githubusercontent.com/JingYang0215/FIT3179_assignment2/refs/heads/main/Choropleth_Map.vg.json").then(function (result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
+  
+      vegaEmbed('#line_chart', "https://raw.githubusercontent.com/JingYang0215/FIT3179_assignment2/refs/heads/main/Line_Chart.vg.json").then(function (result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
+  
+      vegaEmbed('#pie_chart', "https://raw.githubusercontent.com/JingYang0215/FIT3179_assignment2/refs/heads/main/Pie_Chart.vg.json").then(function (result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
+  
+      vegaEmbed('#bar_chart', "https://raw.githubusercontent.com/JingYang0215/FIT3179_assignment2/refs/heads/main/Bar_Chart.vg.json").then(function (result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
+  
+      vegaEmbed('#lollipop_chart', "https://raw.githubusercontent.com/JingYang0215/FIT3179_assignment2/refs/heads/main/Lollipop_Chart.vg.json").then(function (result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
+      
+      vegaEmbed('#scatterplot_chart', "https://raw.githubusercontent.com/JingYang0215/FIT3179_assignment2/refs/heads/main/Scatterplot.vg.json").then(function (result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
+    </script>
+  
+  
+  
+  
+  </div></body></html>
